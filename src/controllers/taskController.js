@@ -1,12 +1,41 @@
-let tasks = [{
+let tasks = [
+  {
     id: 1,
-    title: "TaskFlow API",
-    description: "Backend REST API",
+    title: "TaskFlow API Tasarımı",
+    description: "Backend REST API mimarisinin ve uç noktalarının hazırlanması",
+    status: "completed",
+    priority: "high",
+    assignee: "Hakan",
+    createdAt: new Date("2026-09-20T10:00:00.000Z").toISOString()
+  },
+  {
+    id: 2,
+    title: "Postman İle API Testleri",
+    description: "Tüm CRUD operasyonlarının Postman üzerinden test edilmesi ve ekran görüntülerinin alınması",
     status: "in_progress",
     priority: "high",
     assignee: "Hakan",
     createdAt: new Date().toISOString()
-}];
+  },
+  {
+    id: 3,
+    title: "Veritabanı Entegrasyonu",
+    description: "PostgreSQL / MongoDB entegrasyonu için ORM yapısının araştırılması",
+    status: "pending",
+    priority: "medium",
+    assignee: "Ahmet",
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: 4,
+    title: "Authentication (JWT) Ekleme",
+    description: "Kullanıcı giriş ve yetkilendirme middleware yapısının kurgulanması",
+    status: "pending",
+    priority: "low",
+    assignee: "Unassigned",
+    createdAt: new Date().toISOString()
+  }
+];
 
 //Görev ekleme
 exports.createTask = (req, res) => {
