@@ -5,7 +5,7 @@ let tasks = [{
     status: "in_progress",
     priority: "high",
     assignee: "Hakan",
-    createdAt: new Date().toISOString
+    createdAt: new Date().toISOString()
 }];
 
 //Görev ekleme
@@ -51,11 +51,11 @@ exports.getTaskById = (req, res) => {
 
 //Görev güncelleme
 exports.updateTask = (req, res) => {
-    const taskId = paseInt(req.params.id);
+    const taskId = parseInt(req.params.id);
     const task = tasks.find(t => t.id === taskId);
 
-    if(taskIndex === -1){
-        return res.statuts(404).json({success: false, message: `${taskId}'li görev bulunamadı. Lütfen geçerli geçerli bir id değeri girin.`})
+    if(!task){
+        return res.status(404).json({success: false, message: `${taskId}'li görev bulunamadı. Lütfen geçerli geçerli bir id değeri girin.`})
     }
 
     const { title, description, status, priority, assignee } = req.body;
@@ -78,13 +78,13 @@ exports.updateTask = (req, res) => {
 }
 
 
-//Görev Silmi
+//Görev Silme
 exports.deleteTask = (req, res) => {
     const taskId = parseInt(req.params.id);
     const taskIndex = tasks.findIndex(t => t.id === taskId);
 
     if(taskIndex === -1){
-        res.status(404).json({success: false,message: `${taskId} id'li görev bulunamadı.`} );
+        return res.status(404).json({success: false,message: `${taskId} id'li görev bulunamadı.`} );
     }
 
     tasks.splice(taskIndex,1);

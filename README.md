@@ -24,7 +24,7 @@ Bu proje, Node.js ve Express.js kullanılarak geliştirilmiş, yazılım ekipler
 1. Bağımlılıkları yükleyin:
    ```bash
    npm install
-   ``` 
+   ```n 
 2. .env.example dosyasını referans alarak .env dosyanızı oluşturun
     PORT = 3000
 
